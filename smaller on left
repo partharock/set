@@ -1,0 +1,21 @@
+vector<int> Smallestonleft(int arr[], int n)
+{
+    set< int > s; 
+    vector<int> ans(n);
+    ans[0]=-1;
+    s.insert(arr[0]);
+    for(int i=1;i<n;i++)
+    {
+        s.insert(arr[i]);
+        auto it =s.find(arr[i]);
+        if(it!=s.begin())
+        {
+            it--;
+            ans[i]=*(it);
+        }
+        else
+        ans[i]=-1;
+    }
+    return ans;
+    // Complete the function
+}
